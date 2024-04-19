@@ -14,8 +14,7 @@ public class GlobalExceptionHandler {
         ExceptionDto dto = new ExceptionDto();
         dto.setMessage("Something went wrong");
         dto.setResolution("ArithmeticException");
-        ResponseEntity<ExceptionDto> response = new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
-        return response;
+        return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
@@ -23,8 +22,7 @@ public class GlobalExceptionHandler {
         ExceptionDto dto = new ExceptionDto();
         dto.setMessage("Something went wrong");
         dto.setResolution("ArrayIndexOutOfBoundsException");
-        ResponseEntity<ExceptionDto> response = new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
-        return response;
+        return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ProductNotFoundException.class)
@@ -32,7 +30,6 @@ public class GlobalExceptionHandler {
         ExceptionDto dto = new ExceptionDto();
         dto.setMessage("Invalid productId " + productNotFoundException.getId() + " passed");
         dto.setResolution("ProductNotFoundException caught");
-        ResponseEntity<ExceptionDto> response = new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
-        return response;
+        return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
     }
 }
